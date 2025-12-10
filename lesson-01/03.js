@@ -9,13 +9,12 @@ let i = 1
 let count = 0
 let sum = 0
 
-while (i <= 20) {
+while (count < 20) {
   count += i
-  i++
 
   if (count % 2 === 1) {
     sum += count
   }
-  // console.log(`COUNT: ${count}`)
-  // console.log(sum)
+  console.log(`COUNT: ${count}`)
+  console.log(sum)
 }
