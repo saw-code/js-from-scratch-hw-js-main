@@ -26,7 +26,7 @@ function includesElement(array, element) {
   return includeElement === element
 }
 
-const findCommonElements = function(array1, array2) {
+function findCommonElements(array1, array2) {
   let result = [];
 
   for (let i = 0; i < array1.length; i++) {
@@ -39,8 +39,8 @@ const findCommonElements = function(array1, array2) {
     }
   }
 
-  return result;
-};
+  return result
+}
 
 const testCases = [{
   array1: [1, 2, 3],
@@ -53,6 +53,7 @@ const testCases = [{
 }];
 
 
-console.log(findCommonElements([1, 2, 3, 7, 9, 1, 1], [1, 4, 5, 6, 3]))
+console.log(findCommonElements([1, 2, 3, 7, 9, 1, 1], [1, 4, 5, 6, 3, 1, 3, 3, 3, 3]))
+console.log(findCommonElements([1, 2, 3, ], [4, 5, 6]))
 console.log(findCommonElements(testCases[0].array1, testCases[0].array2))
 console.log(findCommonElements(testCases[1].array1, testCases[1].array2))
