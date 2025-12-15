@@ -27,16 +27,17 @@ function includesElement(array, element) {
 }
 
 function findCommonElements(array1, array2) {
-  const lengthArray = array1.length > array2.length ? array1 : array2
   let newArray = [];
 
-  for (let i = 0; i < lengthArray.length; i++) {
-    if (includesElement(array1, array2[i])){
-      newArray.push(array2[i])
+  for (let i = 0; i < array1.length; i++) {
+    if (includesElement(array2, array1[i])) {
+      if (!includesElement(newArray, array1[i])) {
+        newArray.push(array1[i]);
+      }
     }
   }
 
   return newArray
 }
 
-console.log(findCommonElements([1, 2, 3], [4, 5, 6]))
+console.log(findCommonElements([1, 2, 3, 4, 5, 5], [ 4, 5, 6, 4, 8, 4, 1]))
