@@ -30,9 +30,16 @@ function findCommonElements(array1, array2) {
   let newArray = [];
 
   for (let i = 0; i < array1.length; i++) {
-    if (includesElement(array2, array1[i])) {
-      if (!includesElement(newArray, array1[i])) {
-        newArray.push(array1[i]);
+    let element = array1[i];
+
+    // защита от undefined
+    if (element === undefined) {
+      continue;
+    }
+
+    if (includesElement(array2, element)) {
+      if (!includesElement(newArray, element)) {
+        newArray.push(element);
       }
     }
   }
