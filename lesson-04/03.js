@@ -26,18 +26,26 @@ function includesElement(array, element) {
   return includeElement === element
 }
 
-
-
 function findCommonElements(array1, array2) {
+
   let newArray = [];
+  let newArray2 = [];
+
 
   for (let i = 0; i < array1.length; i++) {
-    if (includesElement(array1, array2[i])) {
-      newArray.push(array2[i])
+    if (!includesElement(newArray, array1[i])){
+      newArray.push(array1[i])
     }
   }
 
-  return newArray
+  for (let i = 0; i < array2.length; i++) {
+    if (includesElement(newArray, array2[i])){
+      newArray2.push(array2[i])
+    }
+  }
+
+  return newArray2
+
 }
 
-console.log(findCommonElements([1, 2, 3], [4, 5, 1]))
+console.log(findCommonElements([1, 2, 3, 4, 5, 6, 7], [4, 5, 1, 3, 2]))
