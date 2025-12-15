@@ -26,32 +26,17 @@ function includesElement(array, element) {
   return includeElement === element
 }
 
-function getUnionArray (array1, array2) {
-  let unionArray = []
-  for (let i = 0; i < array1.length; i++) {
-    unionArray.push(array1[i])
-  }
-
-  for (let i = 0; i < array2.length; i++) {
-    unionArray.push(array2[i])
-  }
-
-  return unionArray
-}
-
 function findCommonElements(array1, array2) {
-
+  const lengthArray = array1.length > array2.length ? array1 : array2
   let newArray = [];
 
-  let unionArray = getUnionArray(array1, array2)
-
-  for (let i = 0; i < unionArray.length; i++) {
-    if (includesElement(array1, unionArray[i]) === includesElement(array2, unionArray[i]) && !includesElement(newArray, unionArray[i])){
-      newArray.push(unionArray[i])
+  for (let i = 0; i < lengthArray.length; i++) {
+    if (includesElement(array1, array2[i])){
+      newArray.push(array2[i])
     }
   }
 
   return newArray
 }
 
-console.log(findCommonElements(['apple', 'banana', 'cherry'], [1]))
+console.log(findCommonElements([1, 2, 3], [4, 5, 6]))
