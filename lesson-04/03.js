@@ -28,25 +28,13 @@ function includesElement(array, element) {
 
 function findCommonElements(array1, array2) {
   let result = [];
-  let minLength = array1.length < array2.length
-    ? array1.length
-    : array2.length;
 
-  for (let i = 0; i < minLength; i++) {
-    let el1 = array1[i];
-    let el2 = array2[i];
+  for (let i = 0; i < array1.length; i++) {
+    let el = array1[i];
 
-    // проверяем элемент из первого массива
-    if (el1 !== undefined && includesElement(array2, el1)) {
-      if (!includesElement(result, el1)) {
-        result.push(el1);
-      }
-    }
-
-    // проверяем элемент из второго массива
-    if (el2 !== undefined && includesElement(array1, el2)) {
-      if (!includesElement(result, el2)) {
-        result.push(el2);
+    if (el !== undefined && includesElement(array2, el)) {
+      if (!includesElement(result, el)) {
+        result.push(el);
       }
     }
   }
