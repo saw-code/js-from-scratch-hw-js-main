@@ -27,24 +27,31 @@ function includesElement(array, element) {
 }
 
 function findCommonElements(array1, array2) {
-  let newArray = [];
+  let result = [];
+  let minLength = array1.length < array2.length
+    ? array1.length
+    : array2.length;
 
-  for (let i = 0; i < array1.length; i++) {
-    let element = array1[i];
+  for (let i = 0; i < minLength; i++) {
+    let el1 = array1[i];
+    let el2 = array2[i];
 
-    // защита от undefined
-    if (element === undefined) {
-      continue;
+    // проверяем элемент из первого массива
+    if (el1 !== undefined && includesElement(array2, el1)) {
+      if (!includesElement(result, el1)) {
+        result.push(el1);
+      }
     }
 
-    if (includesElement(array2, element)) {
-      if (!includesElement(newArray, element)) {
-        newArray.push(element);
+    // проверяем элемент из второго массива
+    if (el2 !== undefined && includesElement(array1, el2)) {
+      if (!includesElement(result, el2)) {
+        result.push(el2);
       }
     }
   }
 
-  return newArray
+  return result;
 }
 
 console.log(findCommonElements([1, 2, 3, 4, 5, 5], [ 4, 5, 6, 4, 8, 4, 1]))
