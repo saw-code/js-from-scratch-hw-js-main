@@ -53,7 +53,7 @@ const testCases = [{
 }];
 
 
-console.log(findCommonElements([1, 2, 3, 7, 9, 1, 1], [1, 4, 5, 6, 3, 1, 3, 3, 3, 3]))
+console.log(findCommonElements([1, 2, 3, 7, 9, 1, 1], [1, 4, 5]))
 console.log(findCommonElements([1, 2, 3, ], [4, 5, 6]))
 console.log(findCommonElements(testCases[0].array1, testCases[0].array2))
 console.log(findCommonElements(testCases[1].array1, testCases[1].array2))
