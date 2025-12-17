@@ -20,45 +20,20 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 */
 
 
-// function findCommonElements(array1, array2) {
-//   let result = [];
-//
-//   for (let i = 0; i < array1.length; i++) {
-//     let element = array1[i];
-//
-//     if (includesElement(array2, element)) {
-//       if (!includesElement(result, element)) {
-//         result.push(element);
-//       }
-//     }
-//   }
-//
-//   return result
-// }
-
 function findCommonElements(array1, array2) {
-  var result = [];
+  let result = [];
 
-  for (var i = 0; i < array1.length; i++) {
-    var currentElement = array1[i];
+  for (let i = 0; i < array1.length; i++) {
+    let element = array1[i];
 
-    if (includesElement(array2, currentElement)) {
-      var isDuplicate = false;
-
-      for (var j = 0; j < result.length; j++) {
-        if (result[j] === currentElement) {
-          isDuplicate = true;
-          break;
-        }
-      }
-
-      if (!isDuplicate) {
-        result.push(currentElement);
+    if (includesElement(array2, element)) {
+      if (includesElement(result, element)) {
+        result.push(element);
       }
     }
   }
 
-  return result;
+  return result
 }
 
 const testCases = [{
