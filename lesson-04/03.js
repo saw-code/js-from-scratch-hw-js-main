@@ -19,21 +19,18 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
-
 function findCommonElements(array1, array2) {
-  let result = [];
+  const commonElements = [];
 
   for (let i = 0; i < array1.length; i++) {
-    let element = array1[i];
+    const currentElement = array1[i];
 
-    if (includesElement(array2, element)) {
-      if (includesElement(result, element)) {
-        result.push(element);
-      }
+    if (includesElement(array2, currentElement)) {
+      commonElements.push(currentElement)
     }
   }
 
-  return result
+  return commonElements
 }
 
 const testCases = [{
