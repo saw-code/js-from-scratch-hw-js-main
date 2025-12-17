@@ -43,9 +43,30 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 // }
 
 function findCommonElements(array1, array2) {
-  return array1.filter((element, index) =>
-    array2.includes(element) && array1.indexOf(element) === index
-  );
+  const common = [];
+
+  // Проходим по всем элементам первого массива
+  for (let i = 0; i < array1.length; i++) {
+    const elem1 = array1[i];
+
+    // Проверяем, был ли этот элемент уже добавлен
+    let isDuplicate = false;
+    for (let k = 0; k < common.length; k++) {
+      if (common[k] === elem1) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (isDuplicate) continue;
+
+    // Проверяем наличие элемента во втором массиве
+    if (includesElement(array2, elem1)) {
+      common.push(elem1);
+    }
+  }
+
+  return common;
 }
 
 const testCases = [{
