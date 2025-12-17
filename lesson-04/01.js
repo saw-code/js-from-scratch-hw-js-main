@@ -15,12 +15,21 @@ includesElement([1, 2, 3], 2)  // должен вернуть `true`.
 */
 
 
+// function includesElement(array, element) {
+//   let includeElement
+//   for (let i = 0; i < array.length; i++) {
+//     array[i] === element ? includeElement = element : false
+//   }
+//   return includeElement === element
+// }
+
 function includesElement(array, element) {
-  let includeElement
   for (let i = 0; i < array.length; i++) {
-    array[i] === element ? includeElement = element : false
+    if (array[i] === element) {
+      return true;  // ← немедленный возврат при нахождении
+    }
   }
-  return includeElement === element
+  return false;  // ← возвращаем false, если не нашли
 }
 
 console.log(includesElement([1, 2, 3], 3))

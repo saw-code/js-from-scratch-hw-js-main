@@ -18,56 +18,23 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Подсказка: можно использовать функцию `includesElement`, которую мы написали ранее.
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
-// function includesElement(array, element) {
-//   let includeElement
-//   for (let i = 0; i < array.length; i++) {
-//     array[i] === element ? includeElement = element : false
-//   }
-//   return includeElement === element
-// }
-//
-// function findCommonElements(array1, array2) {
-//   let result = [];
-//
-//   for (let i = 0; i < array1.length; i++) {
-//     let element = array1[i];
-//
-//     if (includesElement(array2, element)) {
-//       if (!includesElement(result, element)) {
-//         result.push(element);
-//       }
-//     }
-//   }
-//
-//   return result
-// }
 
 function findCommonElements(array1, array2) {
-  const common = [];
+  let result = [];
 
-  // Проходим по всем элементам первого массива
   for (let i = 0; i < array1.length; i++) {
-    const elem1 = array1[i];
+    let element = array1[i];
 
-    // Проверяем, был ли этот элемент уже добавлен
-    let isDuplicate = false;
-    for (let k = 0; k < common.length; k++) {
-      if (common[k] === elem1) {
-        isDuplicate = true;
-        break;
+    if (includesElement(array2, element)) {
+      if (!includesElement(result, element)) {
+        result.push(element);
       }
-    }
-
-    if (isDuplicate) continue;
-
-    // Проверяем наличие элемента во втором массиве
-    if (includesElement(array2, elem1)) {
-      common.push(elem1);
     }
   }
 
-  return common;
+  return result
 }
+
 
 const testCases = [{
   array1: [1, 2, 3],
