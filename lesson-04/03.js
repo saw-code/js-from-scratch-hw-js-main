@@ -37,24 +37,21 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 // }
 
 function findCommonElements(array1, array2) {
-  const result = [];
+  var result = [];
 
-  // Проходим по всем элементам первого массива
-  for (let i = 0; i < array1.length; i++) {
-    const currentElement = array1[i];
+  for (var i = 0; i < array1.length; i++) {
+    var currentElement = array1[i];
 
-    // Проверяем, есть ли элемент во втором массиве
     if (includesElement(array2, currentElement)) {
-      // Проверяем, нет ли уже такого элемента в результате
-      let isDuplicate = false;
-      for (let j = 0; j < result.length; j++) {
+      var isDuplicate = false;
+
+      for (var j = 0; j < result.length; j++) {
         if (result[j] === currentElement) {
           isDuplicate = true;
           break;
         }
       }
 
-      // Если не дубликат, добавляем в результат
       if (!isDuplicate) {
         result.push(currentElement);
       }
