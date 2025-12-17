@@ -19,22 +19,50 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
+
+// function findCommonElements(array1, array2) {
+//   let result = [];
+//
+//   for (let i = 0; i < array1.length; i++) {
+//     let element = array1[i];
+//
+//     if (includesElement(array2, element)) {
+//       if (!includesElement(result, element)) {
+//         result.push(element);
+//       }
+//     }
+//   }
+//
+//   return result
+// }
+
 function findCommonElements(array1, array2) {
-  let result = [];
+  const result = [];
 
+  // Проходим по всем элементам первого массива
   for (let i = 0; i < array1.length; i++) {
-    let element = array1[i];
+    const currentElement = array1[i];
 
-    if (includesElement(array2, element)) {
-      if (!includesElement(result, element)) {
-        result.push(element);
+    // Проверяем, есть ли элемент во втором массиве
+    if (includesElement(array2, currentElement)) {
+      // Проверяем, нет ли уже такого элемента в результате
+      let isDuplicate = false;
+      for (let j = 0; j < result.length; j++) {
+        if (result[j] === currentElement) {
+          isDuplicate = true;
+          break;
+        }
+      }
+
+      // Если не дубликат, добавляем в результат
+      if (!isDuplicate) {
+        result.push(currentElement);
       }
     }
   }
 
-  return result
+  return result;
 }
-
 
 const testCases = [{
   array1: [1, 2, 3],
