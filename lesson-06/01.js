@@ -27,7 +27,7 @@ const filter = (array, callback) => {
   const filterArray = [];
 
   for (let i = 0; i < array.length; i++) {
-    let oddElement = callback(array[i])
+    let oddElement = callback(array[i], i)
     if (oddElement) {
       filterArray.push(array[i])
     }
