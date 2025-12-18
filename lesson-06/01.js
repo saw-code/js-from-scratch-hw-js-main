@@ -36,7 +36,7 @@ const filter = (array, callback) => {
   return filterArray
 }
 
-const oddNumbers = (element) => {
+const oddNumbers = (element, index) => {
   return element % 2 !== 0
 };
 
